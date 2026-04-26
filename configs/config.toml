@@ -1,0 +1,26 @@
+# Argent Container Configuration
+
+[argent]
+version = "0.1.0"
+storage = "/home/argent/.argent"
+key_env_var = "ARGENT_KEY"
+llm_endpoint = "http://localhost:1234"
+
+[security]
+# Blocked paths for sandboxing
+blocklist = [
+    "/etc/shadow",
+    "/etc/passwd",
+    "/root/.ssh",
+    "*.key",
+    "*.pem",
+    "id_rsa",
+    "id_ed25519",
+]
+
+[limits]
+max_memory_mb = 512
+max_execution_time_sec = 300
+
+[logging]
+level = "info"

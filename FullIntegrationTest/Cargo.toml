@@ -1,0 +1,11 @@
+[package]
+name = "argent-integration-tests"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+argent = { path = ".." }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full", "test-util"] }
+tempfile = "3"
