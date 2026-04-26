@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 
 use std::env;
+mod engine;
 use std::path::PathBuf;
 use std::sync::Arc;
 use std::time::Duration;
@@ -20,6 +21,7 @@ use prompts::Thought;
 use tools::ToolRegistry;
 use llm::{LlmClient, LlmError};
 use mcp::{ModelDetector, SecurePathGuard, ModelInfo};
+use engine::{ArgentEngine, EngineError};
 use thiserror::Error;
 
 const VERSION: &str = env!("CARGO_PKG_VERSION");
@@ -48,6 +50,7 @@ struct ArgentCore {
     model_detector: ModelDetector,
     history: Arc<Mutex<Vec<Thought>>>,
     llm: Option<LlmClient>,
+    engine: Option<ArgentEngine>,
     running: Arc<Mutex<bool>>,
     current_model: Option<ModelInfo>,
 }
@@ -62,6 +65,7 @@ impl ArgentCore {
             model_detector: ModelDetector::new(),
             history: Arc::new(Mutex::new(Vec::new())),
             llm: None,
+            engine: Some(ArgentEngine::new()),
             running: Arc::new(Mutex::new(false)),
             current_model: None,
         }

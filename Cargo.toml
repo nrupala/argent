@@ -2,7 +2,7 @@
 name = "argent"
 version = "0.1.0"
 edition = "2021"
-description = "Zero-knowledge autonomous coding agent with WASM sandboxing"
+description = "Zero-knowledge autonomous coding agent with WASM sandboxing and custom GGUF engine"
 authors = ["Argent Team"]
 
 [dependencies]
@@ -19,6 +19,10 @@ dirs = "5"
 thiserror = "1"
 reqwest = { version = "0.12", features = ["json", "blocking"] }
 wasmtime = { version = "22", package = "wasmtime" }
+
+[features]
+default = ["engine"]
+engine = []
 
 [profile.release]
 opt-level = 3
