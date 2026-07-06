@@ -18,7 +18,7 @@ zeroize = { version = "1", features = ["derive"] }
 dirs = "5"
 thiserror = "1"
 reqwest = { version = "0.12", features = ["json", "blocking"] }
-wasmtime = { version = "22", package = "wasmtime" }
+wasmtime = { version = "24", package = "wasmtime" }
 
 [profile.release]
 opt-level = 3
