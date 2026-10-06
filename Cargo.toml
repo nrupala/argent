@@ -1,6 +1,6 @@
 [package]
 name = "argent"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Zero-knowledge autonomous coding agent with WASM sandboxing"
 authors = ["Argent Team"]

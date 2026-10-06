@@ -49,5 +49,5 @@ RUN chmod 500 /home/argent/.argent && \
 
 # Labels
 LABEL maintainer="Argent Team"
-LABEL version="0.1.0"
+LABEL version="0.1.1"
 LABEL description="Zero-knowledge autonomous coding agent"
