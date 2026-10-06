@@ -1,7 +1,7 @@
 # Argent Container Configuration
 
 [argent]
-version = "0.1.0"
+version = "0.1.1"
 storage = "/home/argent/.argent"
 key_env_var = "ARGENT_KEY"
 llm_endpoint = "http://localhost:1234"
