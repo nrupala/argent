@@ -20,11 +20,11 @@ jobs:
         with:
           components: clippy
 
-      - name: Clippy (linter)
-        run: cargo clippy --all-targets
-
       - name: Unit tests (main crate)
         run: cargo test
 
       - name: Integration tests (FullIntegrationTest workspace)
         run: cargo test --manifest-path FullIntegrationTest/Cargo.toml
+
+      - name: Clippy (linter)
+        run: cargo clippy --all-targets
