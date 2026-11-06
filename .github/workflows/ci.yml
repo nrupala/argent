@@ -20,11 +20,12 @@ jobs:
         with:
           components: clippy
 
+      - name: Lint (clippy, the Makefile bar)
+        run: cargo clippy -- -D warnings
+
       - name: Unit tests (main crate)
         run: cargo test
 
-      - name: Integration tests (FullIntegrationTest workspace)
-        run: cargo test --manifest-path FullIntegrationTest/Cargo.toml
-
-      - name: Clippy (linter)
-        run: cargo clippy --all-targets
+      - name: Integration tests (FullIntegrationTest crate)
+        working-directory: FullIntegrationTest
+        run: cargo test
