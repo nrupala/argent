@@ -24,6 +24,17 @@ agent runs against a real GGUF model are out of scope for CI.
 run (2026-04-26: 16 passed, 1 ignored — a state-persistence test
 ignored for a known issue being investigated).
 
+**Known state (2026-11-06, recorded when CI was wired):** the
+`FullIntegrationTest` suite no longer compiles against the current
+library API — it references items that have since been removed or
+made private (`mcp::SecurityLevel`, the formerly public
+`LlmClient.endpoint`, `ArgentSandbox::get_directory` /
+`get_max_memory`). The main crate's own suite passes. Separately,
+`cargo clippy -- -D warnings` currently fails on a small set of
+mechanical lints in the library. Both are product-side drift,
+recorded here rather than smoothed; CI is red until the maintainer
+resolves them, and no release is tagged over that state.
+
 ## CI gates
 
 - CI workflow (`.github/workflows/ci.yml`) on every push and pull
